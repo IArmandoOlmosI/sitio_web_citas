@@ -1,0 +1,114 @@
+/* Contenedor principal */
+.admin-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #a2c2e7;
+}
+
+/* Encabezado */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #5264a1;
+}
+
+
+.admin-logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.admin-logout-button:hover {
+  background-color: #dc2626;
+}
+
+
+.citas-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+/* Lista de citas */
+.citas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Mensaje si no hay citas */
+.citas-empty-message {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.25rem;
+  padding: 2.5rem 0;
+  border: 1px solid #224375;
+  border-radius: 0.5rem;
+}
+
+
+.cita-item {
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cita-item:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+.cita-details-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+
+@media (min-width: 768px) {
+  .cita-details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .cita-details-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .full-width {
+    grid-column: span 1;
+  }
+}
+
+
+.cita-detail {
+  padding: 0;
+  margin: 0;
+  color: #4b5563;
+}
+
+
+.detail-label {
+  font-weight: 600;
+  color: #4b5563;
+}
