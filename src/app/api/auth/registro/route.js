@@ -8,11 +8,18 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 export async function POST(req) {
   try {
-    const { nombre, apellido, contrasena, telefono } = await req.json();
+    const { nombre, apellido, contrasena, telefono} = await req.json();
 
-    //validar contraseña
-    if (contrasena.length <= 6) {
-      return NextResponse.json({ message: 'La contraseña debe ser mayor a 6 caracteres.' }, { status: 400 });
+    const contraRegu = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; 
+
+    
+    if (!nombre || !apellido || !contrasena || !telefono) {
+      return NextResponse.json({ message: 'Todos los campos son requeridos.' }, { status: 400 });
+    }
+    if (!contraRegu.test(contrasena)) {
+      return NextResponse.json({ 
+          message: 'La contraseña debe tener al menos 8 caracteres e incluir mayúsculas, minúsculas y números.' 
+      }, { status: 400 });
     }
     if (telefono.length !== 10) {
       return NextResponse.json({ message: 'El teléfono debe ser de 10 dígitos.' }, { status: 400 });
