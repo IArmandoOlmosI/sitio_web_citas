@@ -10,6 +10,7 @@ export async function POST(req) {
   try {
     const { nombre, apellido, contrasena, telefono} = await req.json();
 
+    
     const contraRegu = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; 
 
     
